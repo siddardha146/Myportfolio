@@ -84,22 +84,21 @@ const Home = () => {
                   </div>
                 </div>
 
-                {/* Download Resume Button */}
-                <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-                  <Button
-                    size="lg"
-                    className="group bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_hsl(120_100%_50%/0.4)] transition-all duration-300">
-                    <a
-                    href="/siddardha_resume.pdf"
-                    download="siddardha_resume.pdf"
+              <a
+                   href="/siddardha_resume.pdf"
+                    download="Sajjala_Siddardha_Resume.pdf"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center"></a>
-                    <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-                    Download Resume
-                  </Button>
-                </div>
-              </div>
+                          rel="noopener noreferrer"
+                                >
+                    <Button
+                        size="lg"
+      className="group bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_hsl(120_100%_50%/0.4)] transition-all duration-300"
+        >
+    <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+    Download Resume
+  </Button>
+</a>
+
 
               {/* Right side - Additional visual space */}
               <div className="hidden lg:block" />
