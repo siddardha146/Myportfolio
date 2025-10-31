@@ -64,36 +64,34 @@ const Home = () => {
                   
                   <div className="space-y-3 text-lg text-muted-foreground">
                     <p className="flex items-center gap-2">
-                      🚀 I'm passionate about turning data into insights...
+                       I'm passionate about turning data into insights...
                     </p>
                     <p className="flex items-center gap-2">
-                      📊 Crafting models that make a difference!
+                       Crafting models that make a difference!
                     </p>
                     <p className="flex items-center gap-2">
-                      🔍 Exploring data science to unlock hidden patterns.
+                       Exploring data science to unlock hidden patterns.
                     </p>
                     <p className="flex items-center gap-2">
-                      🌐 Building web apps that are both functional and fun!
+                       Building web apps that are both functional and fun! ✵
                     </p>
                     <p className="flex items-center gap-2">
-                      💻 And I'm the universal coder
+                       And I'm the universal coder
                     </p>
                     <p className="flex items-center gap-2">
-                      🎯 Focused on delivering optimal solutions.
+                       Focused on delivering optimal solutions.
                     </p>
                   </div>
                 </div>
 
-              <a
-                   href="/siddardha_resume.pdf"
-                    download="Sajjala_Siddardha_Resume.pdf"
-                    target="_blank"
-                          rel="noopener noreferrer"
-                                >
-                    <Button
-                        size="lg"
-      className="group bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_hsl(120_100%_50%/0.4)] transition-all duration-300"
-        >
+             <a
+  href="/siddardha_resume.pdf"
+  download
+>
+  <Button
+    size="lg"
+    className="group bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_hsl(120_100%_50%/0.4)] transition-all duration-300"
+  >
     <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
     Download Resume
   </Button>
