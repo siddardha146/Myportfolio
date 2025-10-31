@@ -2,7 +2,7 @@ import { PageTransition } from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Linkedin, Github, Send, Loader2 } from "lucide-react";
 import doomSilhouette from "@/assets/doom-silhouette.png";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useRef } from "react";
@@ -11,6 +11,7 @@ import emailjs from "@emailjs/browser";
 const Contact = () => {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,27 +24,29 @@ const Contact = () => {
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
         title: "Error",
-        description: "Please fill in all fields",
+        description: "Please fill in all fields before submitting.",
         variant: "destructive",
       });
       return;
     }
 
+    setLoading(true);
+
     try {
       await emailjs.send(
-        "service_3yaqhle",        // ✅ Your Service ID
-        "template_btryye2",       // ✅ Your Template ID
+        "service_3yaqhle", // ✅ Your Service ID
+        "template_btryye2", // ✅ Your Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        "Rolb47AKzfWOjFTC5"       // ✅ Your Public Key
+        "Rolb47AKzfWOjFTC5" // ✅ Your Public Key
       );
 
       toast({
         title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        description: "Thank you for reaching out. I’ll get back to you soon.",
       });
 
       setFormData({ name: "", email: "", message: "" });
@@ -54,6 +57,8 @@ const Contact = () => {
         description: "Failed to send message. Try again later.",
         variant: "destructive",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -70,9 +75,12 @@ const Contact = () => {
             WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.8), transparent)",
           }}
         />
+
+        {/* Content */}
         <div className="relative z-10 container mx-auto px-8 py-20">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
+              {/* Left Side - Form */}
               <div className="space-y-8 animate-fade-in">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 bg-accent/20 rounded-lg border-2 border-accent flex items-center justify-center">
@@ -108,16 +116,23 @@ const Contact = () => {
                   <Button
                     type="submit"
                     size="lg"
+                    disabled={loading}
                     className="w-full bg-accent hover:bg-accent/90 text-primary-foreground font-semibold shadow-lg hover:shadow-[0_0_30px_hsl(120_100%_50%/0.4)] transition-all duration-300 group relative overflow-hidden"
                   >
                     <span className="relative z-10 flex items-center justify-center">
-                      <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 group-hover:-rotate-12 transition-all duration-300" />
-                      Send Message
+                      {loading ? (
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      ) : (
+                        <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 group-hover:-rotate-12 transition-all duration-300" />
+                      )}
+                      {loading ? "Sending..." : "Send Message"}
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-accent via-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-magic-shimmer bg-[length:200%_100%]" />
                   </Button>
                 </form>
               </div>
+
+              {/* Right Side - Empty Space */}
               <div className="hidden lg:block" />
             </div>
           </div>
