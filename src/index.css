@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 150 15% 8%;
+    --foreground: 150 5% 95%;
+
+    --card: 150 20% 12%;
+    --card-foreground: 150 5% 95%;
+
+    --popover: 150 20% 12%;
+    --popover-foreground: 150 5% 95%;
+
+    --primary: 150 70% 45%;
+    --primary-foreground: 150 100% 5%;
+
+    --secondary: 150 10% 25%;
+    --secondary-foreground: 150 5% 95%;
+
+    --muted: 150 10% 20%;
+    --muted-foreground: 150 5% 65%;
+
+    --accent: 120 100% 50%;
+    --accent-foreground: 150 100% 5%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 150 15% 25%;
+    --input: 150 15% 25%;
+    --ring: 150 70% 45%;
+
+    --radius: 0.75rem;
+
+    /* Dr. Doom theme colors */
+    --doom-green: 150 70% 45%;
+    --doom-green-glow: 120 100% 50%;
+    --doom-dark: 150 20% 10%;
+    --doom-metal: 150 5% 40%;
+    --doom-light: 150 5% 95%;
+
+    /* Gradients */
+    --gradient-doom: linear-gradient(135deg, hsl(150 20% 10%), hsl(180 25% 15%), hsl(150 20% 8%));
+    --gradient-magic: linear-gradient(90deg, hsl(150 70% 45% / 0.2), hsl(120 100% 50% / 0.3));
+    
+    /* Shadows and glows */
+    --glow-green: 0 0 40px hsl(120 100% 50% / 0.6);
+    --glow-subtle: 0 0 20px hsl(150 70% 45% / 0.3);
+    --shadow-doom: 0 10px 40px -10px hsl(150 70% 45% / 0.4);
+
+    /* Animations */
+    --transition-magic: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@keyframes flyAcross {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+}
+
+.animate-float {
+  animation: flyAcross 3s ease-in-out infinite;
+}
+
