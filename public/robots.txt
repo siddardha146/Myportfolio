@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://sajjala-portfolio.vercel.app/sitemap.xml
+Sitemap: https://siddardha-portfolio.vercel.app/sitemap.xml
