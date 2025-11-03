@@ -1,4 +1,11 @@
-import { Download, Home, Code, FolderGit2, Award, Mail } from "lucide-react";
+import {
+  Download,
+  Home,
+  Code,
+  FolderGit2,
+  Award,
+  Mail,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/PageTransition";
 import { useTypingEffect } from "@/hooks/useTypingEffect";
@@ -35,7 +42,7 @@ const HomePage = () => {
         </video>
 
         {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/90 pointer-events-none" />
 
         {/* Content */}
         <div className="relative z-10 flex min-h-screen items-center">
@@ -45,24 +52,28 @@ const HomePage = () => {
               <div className="space-y-10 animate-fade-in">
                 {/* Intro Text */}
                 <div className="space-y-6">
-                  <h1 className="text-6xl font-extrabold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]">
+                  <h1 className="text-6xl font-extrabold text-[#e6e6e6] drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                     Hi, I'm{" "}
-                    <span className="text-[#9d65c9] drop-shadow-[0_0_6px_#9d65c9]">
+                    <span className="text-[#9013fe] drop-shadow-[0_0_12px_#9013fe]">
                       Sajjala Siddardha
                     </span>
                   </h1>
 
-                  <div className="text-2xl font-semibold text-[#d0a7f5] h-8 drop-shadow-[0_0_4px_#d0a7f5]">
+                  <div className="text-2xl font-semibold text-[#d68af2] drop-shadow-[0_0_6px_#d68af2] h-8">
                     {typingText}
                     <span className="animate-pulse">|</span>
                   </div>
 
-                  <div className="space-y-4 text-lg text-gray-300">
-                    <p>Building scalable applications with precision.</p>
-                    <p>Turning chaotic data into meaning.</p>
-                    <p>Exploring depths of machine intelligence.</p>
+                  <div className="space-y-4 text-lg text-gray-200 leading-relaxed">
+                    <p>Developing scalable systems with a Venomous touch.</p>
+                    <p>Infusing intelligence into every line of code.</p>
+                    <p>Feeding the machine with data and purpose.</p>
                     <p>
-                      And I'm the <span className="italic">Universal Coder</span> 🕸️
+                      And I'm the{" "}
+                      <span className="text-[#00ffa3] italic">
+                        Universal Coder
+                      </span>{" "}
+                      🕸️
                     </p>
                   </div>
                 </div>
@@ -71,45 +82,45 @@ const HomePage = () => {
                 <a href="/siddardha_resume.pdf" download>
                   <Button
                     size="lg"
-                    className="mt-4 group bg-[#7b2cbf] hover:bg-[#b5179e] text-white font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_#b5179e] transition-all duration-300"
+                    className="mt-4 group bg-[#9b00d1] hover:bg-[#00ffa3] text-white font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_#00ffa3] transition-all duration-300"
                   >
-                    <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                    <Download className="w-5 h-5 mr-2 group-hover:scale-125 transition-transform" />
                     Download Resume
                   </Button>
                 </a>
               </div>
 
               {/* Right Side Navigation Icons */}
-              <div className="hidden lg:flex flex-col items-center justify-center space-y-8">
+              <div className="hidden lg:flex flex-col items-center justify-center space-y-10">
                 <a
                   href="/"
-                  className="text-gray-300 hover:text-[#b5179e] transition-colors duration-300"
+                  className="text-gray-300 hover:text-[#00ffa3] transition-colors duration-300"
                 >
-                  <Home className="w-10 h-10 hover:drop-shadow-[0_0_10px_#b5179e]" />
+                  <Home className="w-10 h-10 hover:drop-shadow-[0_0_20px_#00ffa3]" />
                 </a>
                 <a
                   href="/skills"
-                  className="text-gray-300 hover:text-[#7b2cbf] transition-colors duration-300"
+                  className="text-gray-300 hover:text-[#9b00d1] transition-colors duration-300"
                 >
-                  <Code className="w-10 h-10 hover:drop-shadow-[0_0_10px_#7b2cbf]" />
+                  <Code className="w-10 h-10 hover:drop-shadow-[0_0_20px_#9b00d1]" />
                 </a>
                 <a
                   href="/projects"
-                  className="text-gray-300 hover:text-[#b5179e] transition-colors duration-300"
+                  className="text-gray-300 hover:text-[#00ffa3] transition-colors duration-300"
                 >
-                  <FolderGit2 className="w-10 h-10 hover:drop-shadow-[0_0_10px_#b5179e]" />
+                  <FolderGit2 className="w-10 h-10 hover:drop-shadow-[0_0_20px_#00ffa3]" />
                 </a>
                 <a
                   href="/certificates"
-                  className="text-gray-300 hover:text-[#7b2cbf] transition-colors duration-300"
+                  className="text-gray-300 hover:text-[#9b00d1] transition-colors duration-300"
                 >
-                  <Award className="w-10 h-10 hover:drop-shadow-[0_0_10px_#7b2cbf]" />
+                  <Award className="w-10 h-10 hover:drop-shadow-[0_0_20px_#9b00d1]" />
                 </a>
                 <a
                   href="/contact"
-                  className="text-gray-300 hover:text-[#b5179e] transition-colors duration-300"
+                  className="text-gray-300 hover:text-[#00ffa3] transition-colors duration-300"
                 >
-                  <Mail className="w-10 h-10 hover:drop-shadow-[0_0_10px_#b5179e]" />
+                  <Mail className="w-10 h-10 hover:drop-shadow-[0_0_20px_#00ffa3]" />
                 </a>
               </div>
             </div>
@@ -121,7 +132,7 @@ const HomePage = () => {
           {[...Array(25)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-[#b5179e] rounded-full animate-float opacity-50"
+              className="absolute w-2 h-2 bg-[#00ffa3] rounded-full animate-float opacity-60"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
