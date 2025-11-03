@@ -1,6 +1,6 @@
 import { PageTransition } from "@/components/PageTransition";
 import { Card } from "@/components/ui/card";
-import doomSilhouette from "@/assets/doom-silhouette.png";
+import venomSilhouette from "@/assets/venom-silhouette.jpg";
 
 const skillCategories = [
   {
@@ -29,15 +29,16 @@ const Skills = () => {
   return (
     <PageTransition>
       <div className="relative min-h-screen w-full overflow-hidden text-white">
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#000000] via-[#1a0000] to-[#0a0000]" />
+        {/* Venom Video/Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#000000] via-[#1a0000] to-[#0a0000] z-0" />
 
-        {/* Doom Silhouette */}
+        {/* Venom Silhouette Image */}
         <div
-          className="absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-contain bg-right opacity-10 z-0"
-          style={{ backgroundImage: `url(${doomSilhouette})` }}
+          className="absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-contain bg-right opacity-15 z-0"
+          style={{ backgroundImage: `url(${venomSilhouette})` }}
         />
 
+        {/* Content */}
         <div className="relative z-10 container mx-auto px-8 py-20">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-5xl font-bold mb-4 animate-fade-in">
