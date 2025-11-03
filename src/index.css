@@ -2,73 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Venom Theme Variables */
 
 @layer base {
   :root {
-    --background: 150 15% 8%;
-    --foreground: 150 5% 95%;
+    --background: 260 14% 8%; /* Deep blackish purple */
+    --foreground: 0 0% 98%; /* Bright Venom white */
 
-    --card: 150 20% 12%;
-    --card-foreground: 150 5% 95%;
+    --card: 260 14% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 150 20% 12%;
-    --popover-foreground: 150 5% 95%;
+    --popover: 260 14% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 150 70% 45%;
-    --primary-foreground: 150 100% 5%;
+    --primary: 270 100% 50%; /* Venom purple */
+    --primary-foreground: 260 15% 10%;
 
-    --secondary: 150 10% 25%;
-    --secondary-foreground: 150 5% 95%;
+    --secondary: 270 15% 22%; 
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 150 10% 20%;
-    --muted-foreground: 150 5% 65%;
+    --muted: 260 15% 20%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 120 100% 50%;
-    --accent-foreground: 150 100% 5%;
+    --accent: 135 80% 55%; /* Venom toxic green */
+    --accent-foreground: 260 10% 10%;
 
-    --destructive: 0 70% 50%;
+    --destructive: 0 80% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 150 15% 25%;
-    --input: 150 15% 25%;
-    --ring: 150 70% 45%;
+    --border: 260 15% 25%;
+    --input: 260 15% 25%;
+    --ring: 270 100% 50%;
 
     --radius: 0.75rem;
 
-    /* Dr. Doom theme colors */
-    --doom-green: 150 70% 45%;
-    --doom-green-glow: 120 100% 50%;
-    --doom-dark: 150 20% 10%;
-    --doom-metal: 150 5% 40%;
-    --doom-light: 150 5% 95%;
+    /* Venom Theme Colors */
+    --venom-purple: 270 100% 50%;
+    --venom-green: 135 80% 55%;
+    --venom-black: 260 15% 8%;
+    --venom-white: 0 0% 98%;
 
     /* Gradients */
-    --gradient-doom: linear-gradient(135deg, hsl(150 20% 10%), hsl(180 25% 15%), hsl(150 20% 8%));
-    --gradient-magic: linear-gradient(90deg, hsl(150 70% 45% / 0.2), hsl(120 100% 50% / 0.3));
-    
-    /* Shadows and glows */
-    --glow-green: 0 0 40px hsl(120 100% 50% / 0.6);
-    --glow-subtle: 0 0 20px hsl(150 70% 45% / 0.3);
-    --shadow-doom: 0 10px 40px -10px hsl(150 70% 45% / 0.4);
+    --gradient-venom: linear-gradient(135deg, hsl(260 15% 8%), hsl(270 100% 50% / 0.5), hsl(135 80% 55% / 0.3));
+    --gradient-glow: linear-gradient(90deg, hsl(270 100% 50% / 0.3), hsl(135 80% 55% / 0.4));
+
+    /* Shadows and Glows */
+    --glow-purple: 0 0 40px hsl(270 100% 50% / 0.6);
+    --glow-green: 0 0 30px hsl(135 80% 55% / 0.5);
+    --shadow-venom: 0 10px 40px -10px hsl(270 100% 50% / 0.4);
 
     /* Animations */
-    --transition-magic: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-venom: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
-@keyframes flyAcross {
+@keyframes ooze {
   0%, 100% {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   50% {
-    transform: translateX(30px);
+    transform: translateY(10px);
   }
 }
 
-.animate-float {
-  animation: flyAcross 3s ease-in-out infinite;
+.animate-ooze {
+  animation: ooze 4s ease-in-out infinite;
 }
-
