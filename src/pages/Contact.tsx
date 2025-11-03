@@ -1,74 +1,179 @@
-import React from "react";
-import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import { PageTransition } from "@/components/PageTransition";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Linkedin, Github, Send, Loader2, Phone, MapPin } from "lucide-react";
+import doomSilhouette from "@/assets/doom-silhouette.png";
+import { useToast } from "@/hooks/use-toast";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await emailjs.send(
+        "service_3yaqhle",
+        "template_btryye2",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        "Rolb47AKzfWOjFTC5"
+      );
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I’ll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section id="contact" className="min-h-screen bg-black text-white py-16 px-8">
-      <div className="container mx-auto grid md:grid-cols-2 gap-10">
-        {/* Left Info Box */}
-        <div className="bg-white p-6 rounded-lg shadow-md flex flex-col gap-6">
-          <h2 className="text-2xl font-bold text-black">Contact Info</h2>
+    <PageTransition>
+      <div className="relative min-h-screen w-full overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1f1a] via-[#0f2e28] to-[#081812]" />
 
-          <div className="flex items-center gap-3">
-            <Mail className="text-black" />
-            <p className="text-white">siddardhagaming@gmail.com</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <Phone className="text-black" />
-            <p className="text-white">9490566729</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <MapPin className="text-black" />
-            <p className="text-white">Akividu, Andhra Pradesh, India</p>
-          </div>
-        </div>
+        <div
+          className="absolute right-0 top-0 h-full w-1/2 bg-no-repeat bg-contain bg-right opacity-40"
+          style={{
+            backgroundImage: `url(${doomSilhouette})`,
+            maskImage: "linear-gradient(to left, rgba(0,0,0,0.8), transparent)",
+            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.8), transparent)",
+          }}
+        />
 
-        {/* Right Contact Form */}
-        <div className="bg-gray-900 p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-          <form className="flex flex-col gap-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full p-3 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full p-3 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none"
-            />
-            <textarea
-              placeholder="Your Message"
-              className="w-full p-3 rounded bg-gray-800 text-white border border-gray-700 h-32 focus:outline-none"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-all"
-            >
-              Send Message
-            </button>
-          </form>
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-8 py-20">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              {/* Left Side - Form */}
+              <div className="space-y-8 animate-fade-in">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-accent/20 rounded-lg border-2 border-accent flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-accent" />
+                  </div>
+                  <h1 className="text-5xl font-bold text-foreground">
+                    Contact <span className="text-accent">Me</span>
+                  </h1>
+                </div>
 
-          {/* Social Icons Below Button */}
-          <div className="flex justify-center gap-6 mt-6">
-            <a
-              href="https://github.com/siddardha146"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github className="w-8 h-8 hover:opacity-80 cursor-pointer" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/sajjala-siddardha-84685928b/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Linkedin className="w-8 h-8 hover:opacity-80 cursor-pointer" />
-            </a>
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                >
+                  <Input
+                    type="text"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="bg-[#1a1a1a] border-primary/50 text-foreground placeholder:text-muted-foreground focus:border-accent h-12"
+                  />
+                  <Input
+                    type="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="bg-[#1a1a1a] border-primary/50 text-foreground placeholder:text-muted-foreground focus:border-accent h-12"
+                  />
+                  <Textarea
+                    placeholder="Your Message"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="bg-[#1a1a1a] border-primary/50 text-foreground placeholder:text-muted-foreground focus:border-accent min-h-[150px] resize-none"
+                  />
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={loading}
+                    className="w-full bg-accent hover:bg-accent/90 text-primary-foreground font-semibold shadow-lg hover:shadow-[0_0_30px_hsl(120_100%_50%/0.4)] transition-all duration-300 group relative overflow-hidden"
+                  >
+                    <span className="relative z-10 flex items-center justify-center">
+                      {loading ? (
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      ) : (
+                        <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 group-hover:-rotate-12 transition-all duration-300" />
+                      )}
+                      {loading ? "Sending..." : "Send Message"}
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-accent via-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-magic-shimmer bg-[length:200%_100%]" />
+                  </Button>
+                </form>
+
+                {/* Social Icons */}
+                <div className="flex justify-center gap-6 mt-6">
+                  <a
+                    href="https://github.com/siddardha146"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:scale-110 transition-transform"
+                  >
+                    <Github className="w-8 h-8" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/sajjala-siddardha-84685928b/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:scale-110 transition-transform"
+                  >
+                    <Linkedin className="w-8 h-8" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Side - Contact Info */}
+              <div className="space-y-6 bg-[#0d2622]/60 p-6 rounded-lg border border-accent/20 backdrop-blur-lg">
+                <div className="flex items-center gap-4">
+                  <Mail className="w-6 h-6 text-accent" />
+                  <p className="text-white">siddardhagaming@gmail.com</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Phone className="w-6 h-6 text-accent" />
+                  <p className="text-white">9490566729</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <MapPin className="w-6 h-6 text-accent" />
+                  <p className="text-white">Akividu, Andhra Pradesh, India</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </PageTransition>
   );
 };
 
