@@ -45,7 +45,7 @@ const HomePage = () => {
               <div className="space-y-8 text-center lg:text-left">
                 <h1 className="text-5xl md:text-6xl font-extrabold text-[#e6e6e6]">
                   Hi, I'm{" "}
-                  <span className="text-[#9013fe] font-bold venom-outline">
+                  <span className="text-[#9013fe] [text-shadow:_2px_2px_0px_black,_-2px_-2px_0px_black,_2px_-2px_0px_black,_-2px_2px_0px_black]">
                     Sajjala Siddardha
                   </span>
                 </h1>
