@@ -1,7 +1,8 @@
 import { PageTransition } from "@/components/PageTransition";
 import { Card } from "@/components/ui/card";
 import { Award } from "lucide-react";
-import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4"; // make sure to add this asset
+import venomSilhouette from "@/assets/venom-silhouette.png";
+import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
 
 const certificates = [
   {
@@ -76,15 +77,25 @@ const Certificates = () => {
   return (
     <PageTransition>
       <div className="relative min-h-screen w-full overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#100f18] via-[#200f28] to-[#080812]" />
+        {/* Fullscreen Venom Video Background */}
+        <video
+          src={venomVideo}
+          muted
+          autoPlay
+          loop
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
+        />
 
-        {/* Venom Silhouette */}
+        {/* Dark Gradient Overlay for Readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#100f18] via-[#200f28] to-[#080812] opacity-80 z-0" />
+
+        {/* Venom Silhouette Overlay */}
         <div
-          className="absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-contain bg-right opacity-10"
+          className="absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-contain bg-right opacity-10 z-0"
           style={{ backgroundImage: `url(${venomSilhouette})` }}
         />
 
+        {/* Content */}
         <div className="relative z-10 container mx-auto px-6 md:px-8 py-16 md:py-24">
           <div className="max-w-5xl mx-auto">
             <h1 className="text-5xl font-extrabold text-gray-100 mb-4">
