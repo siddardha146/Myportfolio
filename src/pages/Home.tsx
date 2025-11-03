@@ -2,8 +2,7 @@ import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/PageTransition";
 import { useTypingEffect } from "@/hooks/useTypingEffect";
-import doomMagic from "@/assets/doom-magic.gif";
-import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4"; // ✅ Import Venom video
+import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4"; // ✅ Video import
 
 const roles = [
   "Data Scientist",
@@ -20,46 +19,33 @@ const Home = () => {
   return (
     <PageTransition>
       <div className="relative min-h-screen w-full overflow-hidden">
-        {/* ✅ Background Video */}
+
+        {/* 🎬 Venom Video Background */}
         <video
+          src={venomVideo}
           autoPlay
           loop
           muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
-        >
-          <source src={venomVideo} type="video/mp4" />
-        </video>
+          className="absolute inset-0 w-full h-full object-cover opacity-80" // ✅ better visibility
+        />
 
-        {/* Optional overlay gradient for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80" />
+        {/* 🚫 Removed white over-gradient to make video clear */}
 
         {/* Content Container */}
-        <div className="relative z-10 flex min-h-screen items-center">
+        <div className="relative z-10 flex min-h-screen items-center bg-black/30 backdrop-blur-sm">
           <div className="container mx-auto px-8 py-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              
               {/* Left Content */}
               <div className="space-y-8">
-                {/* Doom Magic Icon */}
-                <div className="w-32 h-32 animate-float">
-                  <img
-                    src={doomMagic}
-                    alt="Magic Animation"
-                    className="w-full h-full object-contain animate-float"
-                    style={{
-                      animationDuration: "6s",
-                      animationTimingFunction: "ease-in-out",
-                    }}
-                  />
-                </div>
-
+                
                 {/* Intro Text */}
                 <div className="space-y-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
                   <h1 className="text-6xl font-bold text-white leading-tight">
-                    Hi, I'm <span className="text-purple-500">Sajjala Siddardha</span>
+                    Hi, I'm <span className="text-red-600">Sajjala Siddardha</span>
                   </h1>
 
-                  <div className="text-2xl text-purple-300 font-semibold h-8">
+                  <div className="text-2xl font-semibold text-gray-300 h-8">
                     {typingText}
                     <span className="animate-pulse">|</span>
                   </div>
@@ -74,19 +60,21 @@ const Home = () => {
                   </div>
                 </div>
 
-                {/* Resume Download */}
-                <a href="/siddardha_resume.pdf" download>
-                  <Button
-                    size="lg"
-                    className="group bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_rgba(155,89,182,0.7)] transition-all duration-300"
-                  >
-                    <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-                    Download Resume
-                  </Button>
-                </a>
+                {/* ✅ Resume Button with spacing below */}
+                <div className="pt-6"> {/* added padding above button */}
+                  <a href="/siddardha_resume.pdf" download>
+                    <Button
+                      size="lg"
+                      className="group bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-6 text-lg rounded-lg shadow-lg transition-all duration-300"
+                    >
+                      <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+                      Download Resume
+                    </Button>
+                  </a>
+                </div>
               </div>
 
-              {/* Right side empty space */}
+              {/* Right side - reserved for future content */}
               <div className="hidden lg:block" />
             </div>
           </div>
