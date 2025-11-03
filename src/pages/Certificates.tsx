@@ -1,8 +1,7 @@
 import { PageTransition } from "@/components/PageTransition";
 import { Card } from "@/components/ui/card";
 import { Award } from "lucide-react";
-import venomSilhouette from "@/assets/venom-silhouette.jpg";
-
+import venomSilhouette from "@/assets/venom-silhouette.png";
 import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
 
 const certificates = [
@@ -77,8 +76,8 @@ const certificates = [
 const Certificates = () => {
   return (
     <PageTransition>
-      <div className="relative min-h-screen w-full overflow-hidden">
-        {/* Fullscreen Venom Video Background */}
+      <div className="relative min-h-screen w-full overflow-hidden text-white">
+        {/* Venom Video Background */}
         <video
           src={venomVideo}
           muted
@@ -87,23 +86,23 @@ const Certificates = () => {
           className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
         />
 
-        {/* Dark Gradient Overlay for Readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#100f18] via-[#200f28] to-[#080812] opacity-80 z-0" />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/80 z-0" />
 
-        {/* Venom Silhouette Overlay */}
+        {/* Venom Silhouette */}
         <div
-          className="absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-contain bg-right opacity-10 z-0"
+          className="absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-contain bg-right opacity-20 z-0"
           style={{ backgroundImage: `url(${venomSilhouette})` }}
         />
 
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-6 md:px-8 py-16 md:py-24">
+        <div className="relative z-10 container mx-auto px-6 md:px-8 py-20">
           <div className="max-w-5xl mx-auto">
-            <h1 className="text-5xl font-extrabold text-gray-100 mb-4">
-              <span className="text-red-500">Certificates</span> & Achievements
+            <h1 className="text-5xl font-extrabold tracking-widest mb-4">
+              <span className="text-white/70">Certificates</span>
             </h1>
-            <p className="text-lg text-gray-400 mb-12">
-              Showcasing my knowledge and growth across platforms and tools.
+            <p className="text-lg text-gray-300 mb-12">
+              Highlights of my learning, achievements, and growth.
             </p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -116,19 +115,19 @@ const Certificates = () => {
                   className="group"
                 >
                   <Card
-                    className="p-6 bg-opacity-30 backdrop-blur-lg border border-red-500/50 hover:border-green-400 transition-all duration-300 hover:shadow-[0_0_25px_#00ffae] cursor-pointer"
+                    className="p-6 bg-white/5 backdrop-blur-lg border border-white/10 hover:border-white/40 transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:scale-[1.02] cursor-pointer"
                     style={{ animationDelay: `${0.2 + index * 0.1}s` }}
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-red-500/20 rounded-md border border-red-500/70 group-hover:border-green-500">
-                        <Award className="w-6 h-6 text-red-400 group-hover:text-green-400 transition-colors" />
+                      <div className="p-3 bg-transparent rounded-md border border-white/40 group-hover:border-white/80 transition-all">
+                        <Award className="w-6 h-6 text-white/70 group-hover:text-white" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-100 group-hover:text-green-300 transition-all">
+                        <h3 className="text-xl font-semibold text-gray-100 group-hover:text-white transition-all">
                           {cert.title}
                         </h3>
                         <p className="text-gray-400">{cert.issuer}</p>
-                        <p className="text-sm text-red-500 mt-1">{cert.date}</p>
+                        <p className="text-sm text-white/60 mt-1">{cert.date}</p>
                       </div>
                     </div>
                   </Card>
