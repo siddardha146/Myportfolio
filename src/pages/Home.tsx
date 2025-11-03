@@ -1,4 +1,4 @@
-import { Download, Github, Linkedin, Mail } from "lucide-react";
+import { Download, Home, Code, FolderGit2, Award, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/PageTransition";
 import { useTypingEffect } from "@/hooks/useTypingEffect";
@@ -11,10 +11,9 @@ const roles = [
   "Web Developer",
   "Data Scientist",
   "Data Analyst",
-  "DL Engineer",
 ];
 
-const Home = () => {
+const HomePage = () => {
   const typingText = useTypingEffect(roles);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
@@ -46,20 +45,25 @@ const Home = () => {
               <div className="space-y-10 animate-fade-in">
                 {/* Intro Text */}
                 <div className="space-y-6">
-                  <h1 className="text-6xl font-extrabold text-white drop-shadow-[0_0_10px_#7b2cbf]">
-                    Hi, I'm <span className="text-[#7b2cbf]">Sajjala Siddardha</span>
+                  <h1 className="text-6xl font-extrabold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]">
+                    Hi, I'm{" "}
+                    <span className="text-[#9d65c9] drop-shadow-[0_0_6px_#9d65c9]">
+                      Sajjala Siddardha
+                    </span>
                   </h1>
 
-                  <div className="text-2xl font-semibold text-[#b5179e] h-8 drop-shadow-[0_0_4px_#b5179e]">
+                  <div className="text-2xl font-semibold text-[#d0a7f5] h-8 drop-shadow-[0_0_4px_#d0a7f5]">
                     {typingText}
                     <span className="animate-pulse">|</span>
                   </div>
 
                   <div className="space-y-4 text-lg text-gray-300">
-                    <p>Building scalable applications with venom-like precision.</p>
-                    <p>Blending chaos and control to decode data.</p>
-                    <p>The world may not be ready, but the web is.</p>
-                    <p>And I am the universal coder 🕸️</p>
+                    <p>Building scalable applications with precision.</p>
+                    <p>Turning chaotic data into meaning.</p>
+                    <p>Exploring depths of machine intelligence.</p>
+                    <p>
+                      And I'm the <span className="italic">Universal Coder</span> 🕸️
+                    </p>
                   </div>
                 </div>
 
@@ -75,29 +79,37 @@ const Home = () => {
                 </a>
               </div>
 
-              {/* Right Side - Social Icons */}
-              <div className="hidden lg:flex flex-col items-center justify-center space-y-10">
+              {/* Right Side Navigation Icons */}
+              <div className="hidden lg:flex flex-col items-center justify-center space-y-8">
                 <a
-                  href="https://github.com/siddardha146"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-[#b5179e] transition-colors duration-300"
+                  href="/"
+                  className="text-gray-300 hover:text-[#b5179e] transition-colors duration-300"
                 >
-                  <Github className="w-12 h-12 hover:drop-shadow-[0_0_10px_#b5179e]" />
+                  <Home className="w-10 h-10 hover:drop-shadow-[0_0_10px_#b5179e]" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/sajjala-siddardha-84685928b/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-[#7b2cbf] transition-colors duration-300"
+                  href="/skills"
+                  className="text-gray-300 hover:text-[#7b2cbf] transition-colors duration-300"
                 >
-                  <Linkedin className="w-12 h-12 hover:drop-shadow-[0_0_10px_#7b2cbf]" />
+                  <Code className="w-10 h-10 hover:drop-shadow-[0_0_10px_#7b2cbf]" />
                 </a>
                 <a
-                  href="mailto:siddardhagaming@gmail.com"
-                  className="text-white hover:text-[#b5179e] transition-colors duration-300"
+                  href="/projects"
+                  className="text-gray-300 hover:text-[#b5179e] transition-colors duration-300"
                 >
-                  <Mail className="w-12 h-12 hover:drop-shadow-[0_0_10px_#b5179e]" />
+                  <FolderGit2 className="w-10 h-10 hover:drop-shadow-[0_0_10px_#b5179e]" />
+                </a>
+                <a
+                  href="/certificates"
+                  className="text-gray-300 hover:text-[#7b2cbf] transition-colors duration-300"
+                >
+                  <Award className="w-10 h-10 hover:drop-shadow-[0_0_10px_#7b2cbf]" />
+                </a>
+                <a
+                  href="/contact"
+                  className="text-gray-300 hover:text-[#b5179e] transition-colors duration-300"
+                >
+                  <Mail className="w-10 h-10 hover:drop-shadow-[0_0_10px_#b5179e]" />
                 </a>
               </div>
             </div>
@@ -106,7 +118,7 @@ const Home = () => {
 
         {/* Floating Venom Particles */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(30)].map((_, i) => (
+          {[...Array(25)].map((_, i) => (
             <div
               key={i}
               className="absolute w-2 h-2 bg-[#b5179e] rounded-full animate-float opacity-50"
@@ -124,4 +136,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
