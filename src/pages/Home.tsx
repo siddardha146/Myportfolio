@@ -45,12 +45,21 @@ const HomePage = () => {
               <div className="space-y-8 text-center lg:text-left">
                 <h1 className="text-5xl md:text-6xl font-extrabold text-[#e6e6e6]">
                   Hi, I'm{" "}
-                  <span className="text-[#9013fe] [text-shadow:_2px_2px_0px_black,_-2px_-2px_0px_black,_2px_-2px_0px_black,_-2px_2px_0px_black]">
+                  <span
+                    className="text-[#9013fe] [text-shadow:_3px_3px_0px_black,_-3px_-3px_0px_black,_3px_-3px_0px_black,_-3px_3px_0px_black] transition-all duration-300 hover:text-red-500"
+                  >
                     Sajjala Siddardha
                   </span>
                 </h1>
 
-                <div className="text-xl md:text-2xl font-semibold text-gray-300 h-8">
+                {/* Typing effect with drop shadow */}
+                <div
+                  className="text-xl md:text-2xl font-semibold text-gray-300 h-8"
+                  style={{
+                    textShadow:
+                      "2px 2px 0px black, -2px -2px 0px black, 2px -2px 0px black, -2px 2px 0px black",
+                  }}
+                >
                   {typingText}
                   <span className="animate-pulse">|</span>
                 </div>
