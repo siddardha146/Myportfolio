@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Linkedin, Github, Send, Loader2, Phone, MapPin } from "lucide-react";
-import doomSilhouette from "@/assets/doom-silhouette.png";
+import venomSilhouette from "@/assets/venom-silhouette.jpg";
+import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
@@ -62,30 +63,40 @@ const Contact = () => {
   return (
     <PageTransition>
       <div className="relative min-h-screen w-full overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1f1a] via-[#0f2e28] to-[#081812]" />
+        {/* Venom Video Background */}
+        <video
+          src={venomVideo}
+          muted
+          autoPlay
+          loop
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-20"
+        />
 
+        {/* Red-Black Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#15000d] to-[#080808] opacity-90 z-0" />
+
+        {/* Venom Silhouette */}
         <div
-          className="absolute right-0 top-0 h-full w-1/2 bg-no-repeat bg-contain bg-right opacity-40"
+          className="absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-contain bg-right opacity-10 z-0"
           style={{
-            backgroundImage: `url(${doomSilhouette})`,
-            maskImage: "linear-gradient(to left, rgba(0,0,0,0.8), transparent)",
-            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.8), transparent)",
+            backgroundImage: `url(${venomSilhouette})`,
+            maskImage: "linear-gradient(to left, rgba(0,0,0,0.6), transparent)",
+            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.6), transparent)",
           }}
         />
 
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-8 py-20">
+        <div className="relative z-10 container mx-auto px-6 md:px-8 py-16 md:py-24">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               {/* Left Side - Form */}
               <div className="space-y-8 animate-fade-in">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-accent/20 rounded-lg border-2 border-accent flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-accent" />
+                  <div className="w-12 h-12 bg-red-500/20 rounded-lg border-2 border-red-600 flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-red-500" />
                   </div>
-                  <h1 className="text-5xl font-bold text-foreground">
-                    Contact <span className="text-accent">Me</span>
+                  <h1 className="text-5xl font-bold text-white">
+                    Contact <span className="text-red-500">Me</span>
                   </h1>
                 </div>
 
@@ -99,37 +110,36 @@ const Contact = () => {
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-[#1a1a1a] border-primary/50 text-foreground placeholder:text-muted-foreground focus:border-accent h-12"
+                    className="bg-black/70 border-red-500/30 text-white placeholder:text-gray-500 focus:border-red-500 h-12"
                   />
                   <Input
                     type="email"
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-[#1a1a1a] border-primary/50 text-foreground placeholder:text-muted-foreground focus:border-accent h-12"
+                    className="bg-black/70 border-red-500/30 text-white placeholder:text-gray-500 focus:border-red-500 h-12"
                   />
                   <Textarea
                     placeholder="Your Message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-[#1a1a1a] border-primary/50 text-foreground placeholder:text-muted-foreground focus:border-accent min-h-[150px] resize-none"
+                    className="bg-black/70 border-red-500/30 text-white placeholder:text-gray-500 focus:border-red-500 min-h-[150px] resize-none"
                   />
 
                   <Button
                     type="submit"
                     size="lg"
                     disabled={loading}
-                    className="w-full bg-accent hover:bg-accent/90 text-primary-foreground font-semibold shadow-lg hover:shadow-[0_0_30px_hsl(120_100%_50%/0.4)] transition-all duration-300 group relative overflow-hidden"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold shadow-lg hover:shadow-red-700/50 transition-all duration-300"
                   >
                     <span className="relative z-10 flex items-center justify-center">
                       {loading ? (
                         <Loader2 className="w-5 h-5 mr-2 animate-spin" />
                       ) : (
-                        <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 group-hover:-rotate-12 transition-all duration-300" />
+                        <Send className="w-5 h-5 mr-2 transition-transform group-hover:translate-x-1" />
                       )}
                       {loading ? "Sending..." : "Send Message"}
                     </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-accent via-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-magic-shimmer bg-[length:200%_100%]" />
                   </Button>
                 </form>
 
@@ -139,7 +149,7 @@ const Contact = () => {
                     href="https://github.com/siddardha146"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent hover:scale-110 transition-transform"
+                    className="text-red-500 hover:text-white hover:scale-110 transition-all"
                   >
                     <Github className="w-8 h-8" />
                   </a>
@@ -147,7 +157,7 @@ const Contact = () => {
                     href="https://www.linkedin.com/in/sajjala-siddardha-84685928b/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent hover:scale-110 transition-transform"
+                    className="text-red-500 hover:text-white hover:scale-110 transition-all"
                   >
                     <Linkedin className="w-8 h-8" />
                   </a>
@@ -155,18 +165,18 @@ const Contact = () => {
               </div>
 
               {/* Right Side - Contact Info */}
-              <div className="space-y-6 bg-[#0d2622]/60 p-6 rounded-lg border border-accent/20 backdrop-blur-lg">
-                <div className="flex items-center gap-4">
-                  <Mail className="w-6 h-6 text-accent" />
-                  <p className="text-white">siddardhagaming@gmail.com</p>
+              <div className="space-y-6 bg-[#0a0a0a]/60 p-6 rounded-lg border border-red-600/30 backdrop-blur-lg shadow-lg">
+                <div className="flex items-center gap-4 text-white">
+                  <Mail className="w-6 h-6 text-red-500" />
+                  <p>siddardhagaming@gmail.com</p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <Phone className="w-6 h-6 text-accent" />
-                  <p className="text-white">9490566729</p>
+                <div className="flex items-center gap-4 text-white">
+                  <Phone className="w-6 h-6 text-red-500" />
+                  <p>9490566729</p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <MapPin className="w-6 h-6 text-accent" />
-                  <p className="text-white">Akividu, Andhra Pradesh, India</p>
+                <div className="flex items-center gap-4 text-white">
+                  <MapPin className="w-6 h-6 text-red-500" />
+                  <p>Akividu, Andhra Pradesh, India</p>
                 </div>
               </div>
             </div>
