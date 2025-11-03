@@ -2,16 +2,7 @@ import { PageTransition } from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Mail,
-  Linkedin,
-  Github,
-  Send,
-  Loader2,
-  Phone,
-  MapPin,
-} from "lucide-react";
-import venomSilhouette from "@/assets/venom-silhouette.jpg";
+import { Mail, Linkedin, Github, Send, Loader2, Phone, MapPin } from "lucide-react";
 import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
 
 import { useToast } from "@/hooks/use-toast";
@@ -30,11 +21,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (
-      !formData.name.trim() ||
-      !formData.email.trim() ||
-      !formData.message.trim()
-    ) {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
         title: "Error",
         description: "Please fill in all fields before submitting.",
@@ -88,26 +75,18 @@ const Contact = () => {
         {/* Overlay for Contrast */}
         <div className="absolute inset-0 bg-black/80 z-0" />
 
-        {/* Venom Silhouette */}
-        <div
-          className="absolute right-0 top-0 h-full w-1/2 bg-no-repeat bg-contain bg-right z-0 mix-blend-overlay opacity-40"
-          style={{
-            backgroundImage: `url(${venomSilhouette})`,
-          }}
-        />
-
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-8 py-20">
+        <div className="relative z-10 container mx-auto px-6 py-20">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               {/* Form Section */}
-              <div className="space-y-8 animate-fade-in">
+              <div className="space-y-8">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-white/10 rounded-lg border-2 border-white flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-red-600/30 rounded-lg border-2 border-red-600 flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-red-400" />
                   </div>
                   <h1 className="text-5xl font-extrabold tracking-wider">
-                    Contact <span className="text-white/60">Me</span>
+                    Contact <span className="text-red-500">Me</span>
                   </h1>
                 </div>
 
@@ -116,40 +95,34 @@ const Contact = () => {
                     type="text"
                     placeholder="Your Name"
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    className="bg-black/60 border-white/20 text-white placeholder:text-gray-400 focus:border-white h-12"
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="bg-black/60 border-red-600/30 text-white placeholder:text-gray-400 focus:border-red-500 h-12"
                   />
                   <Input
                     type="email"
                     placeholder="Your Email"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="bg-black/60 border-white/20 text-white placeholder:text-gray-400 focus:border-white h-12"
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="bg-black/60 border-red-600/30 text-white placeholder:text-gray-400 focus:border-red-500 h-12"
                   />
                   <Textarea
                     placeholder="Your Message"
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    className="bg-black/60 border-white/20 text-white placeholder:text-gray-400 min-h-[150px] resize-none focus:border-white"
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="bg-black/60 border-red-600/30 text-white placeholder:text-gray-400 min-h-[150px] resize-none focus:border-red-500"
                   />
 
                   <Button
                     type="submit"
                     size="lg"
                     disabled={loading}
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold border border-red-700 shadow-red-900 shadow-md transition-all duration-300 group relative overflow-hidden"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold border border-red-800 shadow-md transition-all duration-300 group relative overflow-hidden"
                   >
                     <span className="relative z-10 flex items-center justify-center">
                       {loading ? (
                         <Loader2 className="w-5 h-5 mr-2 animate-spin" />
                       ) : (
-                        <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-all duration-300" />
+                        <Send className="w-5 h-5 mr-2 group-hover:text-red-300 transition-all duration-300" />
                       )}
                       {loading ? "Sending..." : "Send Message"}
                     </span>
@@ -162,7 +135,7 @@ const Contact = () => {
                     href="https://github.com/siddardha146"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:scale-110 transition-transform"
+                    className="text-white hover:text-red-400 transition-colors"
                   >
                     <Github className="w-8 h-8" />
                   </a>
@@ -170,7 +143,7 @@ const Contact = () => {
                     href="https://www.linkedin.com/in/sajjala-siddardha-84685928b/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:scale-110 transition-transform"
+                    className="text-white hover:text-red-400 transition-colors"
                   >
                     <Linkedin className="w-8 h-8" />
                   </a>
@@ -178,17 +151,17 @@ const Contact = () => {
               </div>
 
               {/* Contact Info */}
-              <div className="space-y-6 bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-md">
+              <div className="space-y-6 bg-black/50 p-6 rounded-lg border border-red-600/40 backdrop-blur-md">
                 <div className="flex items-center gap-4">
-                  <Mail className="w-6 h-6 text-white/80" />
+                  <Mail className="w-6 h-6 text-red-400" />
                   <p className="text-gray-200">siddardhagaming@gmail.com</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <Phone className="w-6 h-6 text-white/80" />
+                  <Phone className="w-6 h-6 text-red-400" />
                   <p className="text-gray-200">9490566729</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <MapPin className="w-6 h-6 text-white/80" />
+                  <MapPin className="w-6 h-6 text-red-400" />
                   <p className="text-gray-200">Akividu, Andhra Pradesh, India</p>
                 </div>
               </div>
