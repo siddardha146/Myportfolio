@@ -44,7 +44,10 @@ const HomePage = () => {
               {/* Left Content */}
               <div className="space-y-8 text-center lg:text-left">
                 <h1 className="text-5xl md:text-6xl font-extrabold text-[#e6e6e6]">
-                  Hi, I'm <span className="text-[#9013fe]">Sajjala Siddardha</span>
+                  Hi, I'm{" "}
+                  <span className="text-[#9013fe] font-bold venom-outline">
+                    Sajjala Siddardha
+                  </span>
                 </h1>
 
                 <div className="text-xl md:text-2xl font-semibold text-gray-300 h-8">
