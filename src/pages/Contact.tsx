@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Linkedin, Github, Send, Loader2, Phone, MapPin } from "lucide-react";
-import venomSilhouette from "@/assets/venom-silhouette.jpg";
+import venomSilhouette from "@/assets/venom-silhouette.png";
 import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useRef } from "react";
@@ -62,81 +62,77 @@ const Contact = () => {
 
   return (
     <PageTransition>
-      <div className="relative min-h-screen w-full overflow-hidden">
+      <div className="relative min-h-screen w-full overflow-hidden text-white">
         {/* Venom Video Background */}
         <video
           src={venomVideo}
-          muted
           autoPlay
           loop
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-20"
+          muted
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
 
-        {/* Red-Black Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#15000d] to-[#080808] opacity-90 z-0" />
+        {/* Overlay for Contrast */}
+        <div className="absolute inset-0 bg-black/80 z-0" />
 
         {/* Venom Silhouette */}
         <div
-          className="absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-contain bg-right opacity-10 z-0"
+          className="absolute right-0 top-0 h-full w-1/2 bg-no-repeat bg-contain bg-right opacity-30 z-0"
           style={{
             backgroundImage: `url(${venomSilhouette})`,
-            maskImage: "linear-gradient(to left, rgba(0,0,0,0.6), transparent)",
-            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.6), transparent)",
+            maskImage: "linear-gradient(to left, rgba(0,0,0,0.8), transparent)",
+            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.8), transparent)",
           }}
         />
 
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-6 md:px-8 py-16 md:py-24">
+        <div className="relative z-10 container mx-auto px-8 py-20">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
-              {/* Left Side - Form */}
+              {/* Form Section */}
               <div className="space-y-8 animate-fade-in">
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 bg-red-500/20 rounded-lg border-2 border-red-600 flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-red-500" />
+                  <div className="w-12 h-12 bg-white/10 rounded-lg border-2 border-white flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-white" />
                   </div>
-                  <h1 className="text-5xl font-bold text-white">
-                    Contact <span className="text-red-500">Me</span>
+                  <h1 className="text-5xl font-extrabold tracking-wider">
+                    Contact <span className="text-white/60">Me</span>
                   </h1>
                 </div>
 
-                <form
-                  ref={formRef}
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                >
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <Input
                     type="text"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-black/70 border-red-500/30 text-white placeholder:text-gray-500 focus:border-red-500 h-12"
+                    className="bg-black/60 border-white/20 text-white placeholder:text-gray-400 focus:border-white h-12"
                   />
                   <Input
                     type="email"
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-black/70 border-red-500/30 text-white placeholder:text-gray-500 focus:border-red-500 h-12"
+                    className="bg-black/60 border-white/20 text-white placeholder:text-gray-400 focus:border-white h-12"
                   />
                   <Textarea
                     placeholder="Your Message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-black/70 border-red-500/30 text-white placeholder:text-gray-500 focus:border-red-500 min-h-[150px] resize-none"
+                    className="bg-black/60 border-white/20 text-white placeholder:text-gray-400 min-h-[150px] resize-none focus:border-white"
                   />
 
                   <Button
                     type="submit"
                     size="lg"
                     disabled={loading}
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold shadow-lg hover:shadow-red-700/50 transition-all duration-300"
+                    className="w-full bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/30 shadow-md transition-all duration-300 group relative overflow-hidden"
                   >
                     <span className="relative z-10 flex items-center justify-center">
                       {loading ? (
                         <Loader2 className="w-5 h-5 mr-2 animate-spin" />
                       ) : (
-                        <Send className="w-5 h-5 mr-2 transition-transform group-hover:translate-x-1" />
+                        <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-all duration-300" />
                       )}
                       {loading ? "Sending..." : "Send Message"}
                     </span>
@@ -149,7 +145,7 @@ const Contact = () => {
                     href="https://github.com/siddardha146"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-red-500 hover:text-white hover:scale-110 transition-all"
+                    className="text-white hover:scale-110 transition-transform"
                   >
                     <Github className="w-8 h-8" />
                   </a>
@@ -157,26 +153,26 @@ const Contact = () => {
                     href="https://www.linkedin.com/in/sajjala-siddardha-84685928b/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-red-500 hover:text-white hover:scale-110 transition-all"
+                    className="text-white hover:scale-110 transition-transform"
                   >
                     <Linkedin className="w-8 h-8" />
                   </a>
                 </div>
               </div>
 
-              {/* Right Side - Contact Info */}
-              <div className="space-y-6 bg-[#0a0a0a]/60 p-6 rounded-lg border border-red-600/30 backdrop-blur-lg shadow-lg">
-                <div className="flex items-center gap-4 text-white">
-                  <Mail className="w-6 h-6 text-red-500" />
-                  <p>siddardhagaming@gmail.com</p>
+              {/* Contact Info */}
+              <div className="space-y-6 bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-md">
+                <div className="flex items-center gap-4">
+                  <Mail className="w-6 h-6 text-white/80" />
+                  <p className="text-gray-200">siddardhagaming@gmail.com</p>
                 </div>
-                <div className="flex items-center gap-4 text-white">
-                  <Phone className="w-6 h-6 text-red-500" />
-                  <p>9490566729</p>
+                <div className="flex items-center gap-4">
+                  <Phone className="w-6 h-6 text-white/80" />
+                  <p className="text-gray-200">9490566729</p>
                 </div>
-                <div className="flex items-center gap-4 text-white">
-                  <MapPin className="w-6 h-6 text-red-500" />
-                  <p>Akividu, Andhra Pradesh, India</p>
+                <div className="flex items-center gap-4">
+                  <MapPin className="w-6 h-6 text-white/80" />
+                  <p className="text-gray-200">Akividu, Andhra Pradesh, India</p>
                 </div>
               </div>
             </div>
