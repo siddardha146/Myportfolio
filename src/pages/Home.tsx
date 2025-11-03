@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/PageTransition";
 import { useTypingEffect } from "@/hooks/useTypingEffect";
 import doomMagic from "@/assets/doom-magic.gif";
-import doomSilhouette from "@/assets/doom-silhouette.png";
+import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4"; // ✅ Import Venom video
 
 const roles = [
   "Data Scientist",
@@ -20,21 +20,19 @@ const Home = () => {
   return (
     <PageTransition>
       <div className="relative min-h-screen w-full overflow-hidden">
-        {/* Background with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1f1a] via-[#0f2e28] to-[#081812]" />
+        {/* ✅ Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        >
+          <source src={venomVideo} type="video/mp4" />
+        </video>
 
-        {/* Doom Silhouette Background */}
-        <div
-          className="absolute right-0 top-0 h-full w-3/4 bg-no-repeat bg-contain bg-right opacity-30"
-          style={{
-            backgroundImage: `url(${doomSilhouette})`,
-            maskImage: "linear-gradient(to left, rgba(0,0,0,0.5), transparent)",
-            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.5), transparent)",
-          }}
-        />
-
-        {/* Magic energy overlay effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/5 to-transparent animate-magic-shimmer bg-[length:200%_100%]" />
+        {/* Optional overlay gradient for readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80" />
 
         {/* Content Container */}
         <div className="relative z-10 flex min-h-screen items-center">
@@ -46,7 +44,7 @@ const Home = () => {
                 <div className="w-32 h-32 animate-float">
                   <img
                     src={doomMagic}
-                    alt="Dr. Doom Magic"
+                    alt="Magic Animation"
                     className="w-full h-full object-contain animate-float"
                     style={{
                       animationDuration: "6s",
@@ -57,16 +55,16 @@ const Home = () => {
 
                 {/* Intro Text */}
                 <div className="space-y-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-                  <h1 className="text-6xl font-bold text-foreground leading-tight">
-                    Hi, I'm <span className="text-accent">Sajjala Siddardha</span>
+                  <h1 className="text-6xl font-bold text-white leading-tight">
+                    Hi, I'm <span className="text-purple-500">Sajjala Siddardha</span>
                   </h1>
 
-                  <div className="text-2xl text-primary font-semibold h-8">
+                  <div className="text-2xl text-purple-300 font-semibold h-8">
                     {typingText}
                     <span className="animate-pulse">|</span>
                   </div>
 
-                  <div className="space-y-3 text-lg text-muted-foreground">
+                  <div className="space-y-3 text-lg text-gray-300">
                     <p>I'm passionate about turning data into insights...</p>
                     <p>Crafting models that make a difference!</p>
                     <p>Exploring data science to unlock hidden patterns.</p>
@@ -76,11 +74,11 @@ const Home = () => {
                   </div>
                 </div>
 
-                {/* ✅ Fixed Resume Download */}
+                {/* Resume Download */}
                 <a href="/siddardha_resume.pdf" download>
                   <Button
                     size="lg"
-                    className="group bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_hsl(120_100%_50%/0.4)] transition-all duration-300"
+                    className="group bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_rgba(155,89,182,0.7)] transition-all duration-300"
                   >
                     <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
                     Download Resume
@@ -88,26 +86,10 @@ const Home = () => {
                 </a>
               </div>
 
-              {/* Right side - Additional visual space */}
+              {/* Right side empty space */}
               <div className="hidden lg:block" />
             </div>
           </div>
-        </div>
-
-        {/* Magical particle effects */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-accent rounded-full animate-float opacity-40"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`,
-              }}
-            />
-          ))}
         </div>
       </div>
     </PageTransition>
