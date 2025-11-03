@@ -58,7 +58,8 @@ const HomePage = () => {
                   <p>Feeding the machine with data and purpose.</p>
                   <p>
                     And I'm the{" "}
-                    <span className="text-[#00ffa3] italic">Universal Coder</span> 🕸️
+                    <span className="text-red-500 italic">Universal Coder</span>{" "}
+                    🕸️
                   </p>
                 </div>
 
@@ -66,7 +67,7 @@ const HomePage = () => {
                 <a href="/siddardha_resume.pdf" download>
                   <Button
                     size="lg"
-                    className="mt-4 bg-[#9b00d1] hover:bg-[#00ffa3] text-white font-semibold px-6 py-4 md:px-8 md:py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_#00ffa3] transition-all duration-300"
+                    className="mt-4 bg-[#9b00d1] hover:bg-red-600 text-white font-semibold px-6 py-4 md:px-8 md:py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_#ff0000] transition-all duration-300"
                   >
                     <Download className="w-5 h-5 mr-2" />
                     Download Resume
@@ -74,7 +75,7 @@ const HomePage = () => {
                 </a>
               </div>
 
-              {/* Empty Right Side for spacing + future sections */}
+              {/* Empty Right Side for spacing */}
               <div className="hidden lg:block w-1/3" />
             </div>
           </div>
