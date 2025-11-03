@@ -1,7 +1,7 @@
 import { PageTransition } from "@/components/PageTransition";
 import { Card } from "@/components/ui/card";
 import { Award } from "lucide-react";
-import venomSilhouette from "@/assets/venom-silhouette.png";
+import venomSilhouette from "@/assets/venom-silhouette.jpg";
 import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
 
 const certificates = [
