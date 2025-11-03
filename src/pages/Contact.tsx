@@ -2,7 +2,15 @@ import { PageTransition } from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, Github, Send, Loader2, Phone, MapPin } from "lucide-react";
+import {
+  Mail,
+  Linkedin,
+  Github,
+  Send,
+  Loader2,
+  Phone,
+  MapPin,
+} from "lucide-react";
 import venomSilhouette from "@/assets/venom-silhouette.jpg";
 import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
 
@@ -22,7 +30,11 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
+    ) {
       toast({
         title: "Error",
         description: "Please fill in all fields before submitting.",
@@ -78,11 +90,9 @@ const Contact = () => {
 
         {/* Venom Silhouette */}
         <div
-          className="absolute right-0 top-0 h-full w-1/2 bg-no-repeat bg-contain bg-right opacity-30 z-0"
+          className="absolute right-0 top-0 h-full w-1/2 bg-no-repeat bg-contain bg-right z-0 mix-blend-overlay opacity-40"
           style={{
             backgroundImage: `url(${venomSilhouette})`,
-            maskImage: "linear-gradient(to left, rgba(0,0,0,0.8), transparent)",
-            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.8), transparent)",
           }}
         />
 
@@ -106,20 +116,26 @@ const Contact = () => {
                     type="text"
                     placeholder="Your Name"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="bg-black/60 border-white/20 text-white placeholder:text-gray-400 focus:border-white h-12"
                   />
                   <Input
                     type="email"
                     placeholder="Your Email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="bg-black/60 border-white/20 text-white placeholder:text-gray-400 focus:border-white h-12"
                   />
                   <Textarea
                     placeholder="Your Message"
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="bg-black/60 border-white/20 text-white placeholder:text-gray-400 min-h-[150px] resize-none focus:border-white"
                   />
 
@@ -127,7 +143,7 @@ const Contact = () => {
                     type="submit"
                     size="lg"
                     disabled={loading}
-                    className="w-full bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/30 shadow-md transition-all duration-300 group relative overflow-hidden"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold border border-red-700 shadow-red-900 shadow-md transition-all duration-300 group relative overflow-hidden"
                   >
                     <span className="relative z-10 flex items-center justify-center">
                       {loading ? (
