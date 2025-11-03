@@ -28,3 +28,18 @@
 body {
   @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))] overflow-x-hidden;
 }
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(40px) translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out forwards;
+}
