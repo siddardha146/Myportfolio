@@ -4,7 +4,6 @@ import { Award } from "lucide-react";
 import venomSilhouette from "@/assets/venom-silhouette.jpg";
 import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
 
-
 const certificates = [
   {
     title: "Google Cloud Career Launchpad Cloud Engineer track",
@@ -84,7 +83,7 @@ const Certificates = () => {
           muted
           autoPlay
           loop
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-20"
         />
 
         {/* Dark Overlay */}
@@ -92,18 +91,18 @@ const Certificates = () => {
 
         {/* Venom Silhouette */}
         <div
-          className="absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-contain bg-right opacity-20 z-0"
+          className="absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-contain bg-right opacity-15 z-0"
           style={{ backgroundImage: `url(${venomSilhouette})` }}
         />
 
         {/* Content */}
         <div className="relative z-10 container mx-auto px-6 md:px-8 py-20">
           <div className="max-w-5xl mx-auto">
-            <h1 className="text-5xl font-extrabold tracking-widest mb-4">
-              <span className="text-white/70">Certificates</span>
+            <h1 className="text-5xl font-extrabold tracking-widest mb-4 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]">
+              Certificates
             </h1>
             <p className="text-lg text-gray-300 mb-12">
-              Highlights of my learning, achievements, and growth.
+              A showcase of my skills and certifications.
             </p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -116,19 +115,19 @@ const Certificates = () => {
                   className="group"
                 >
                   <Card
-                    className="p-6 bg-white/5 backdrop-blur-lg border border-white/10 hover:border-white/40 transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:scale-[1.02] cursor-pointer"
-                    style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                    className="p-6 bg-white/10 backdrop-blur-xl border border-white/10 hover:border-white/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.35)] hover:scale-[1.03] cursor-pointer"
+                    style={{ animationDelay: `${0.1 + index * 0.1}s` }}
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-transparent rounded-md border border-white/40 group-hover:border-white/80 transition-all">
-                        <Award className="w-6 h-6 text-white/70 group-hover:text-white" />
+                      <div className="p-3 bg-transparent rounded-md border border-white/30 group-hover:border-white/70 transition-all">
+                        <Award className="w-6 h-6 text-white/70 group-hover:text-white transition-all" />
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-gray-100 group-hover:text-white transition-all">
                           {cert.title}
                         </h3>
                         <p className="text-gray-400">{cert.issuer}</p>
-                        <p className="text-sm text-white/60 mt-1">{cert.date}</p>
+                        <p className="text-sm text-white/50 mt-1">{cert.date}</p>
                       </div>
                     </div>
                   </Card>
