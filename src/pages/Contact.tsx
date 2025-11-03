@@ -2,7 +2,7 @@ import { PageTransition } from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, Github, Send, Loader2 } from "lucide-react";
+import { Mail, Linkedin, Github, Send, Loader2, Phone, MapPin, MessageSquare } from "lucide-react";
 import doomSilhouette from "@/assets/doom-silhouette.png";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useRef } from "react";
@@ -34,14 +34,14 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        "service_3yaqhle", // ✅ Your Service ID
-        "template_btryye2", // ✅ Your Template ID
+        "service_3yaqhle",
+        "template_btryye2",
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        "Rolb47AKzfWOjFTC5" // ✅ Your Public Key
+        "Rolb47AKzfWOjFTC5"
       );
 
       toast({
@@ -80,7 +80,7 @@ const Contact = () => {
         <div className="relative z-10 container mx-auto px-8 py-20">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
-              {/* Left Side - Form */}
+              {/* LEFT SIDE — Form */}
               <div className="space-y-8 animate-fade-in">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 bg-accent/20 rounded-lg border-2 border-accent flex items-center justify-center">
@@ -132,8 +132,70 @@ const Contact = () => {
                 </form>
               </div>
 
-              {/* Right Side - Empty Space */}
-              <div className="hidden lg:block" />
+              {/* ✅ RIGHT SIDE — Contact Info Boxes */}
+              <div className="space-y-6 animate-fade-in">
+                {/* Email */}
+                <a
+                  href="mailto:siddardhagaming@gmail.com"
+                  className="flex items-center gap-4 p-5 bg-[#1a1a1a] border border-accent/50 rounded-lg hover:border-accent hover:shadow-[0_0_15px_hsl(120_100%_50%/0.4)] transition-all duration-300"
+                >
+                  <Mail className="w-6 h-6 text-accent" />
+                  <div>
+                    <h4 className="text-lg font-semibold">Email</h4>
+                    <p className="text-muted-foreground">siddardhagaming@gmail.com</p>
+                  </div>
+                </a>
+
+                {/* Phone */}
+                <a
+                  href="tel:+919490566729"
+                  className="flex items-center gap-4 p-5 bg-[#1a1a1a] border border-accent/50 rounded-lg hover:border-accent hover:shadow-[0_0_15px_hsl(120_100%_50%/0.4)] transition-all duration-300"
+                >
+                  <Phone className="w-6 h-6 text-accent" />
+                  <div>
+                    <h4 className="text-lg font-semibold">Phone</h4>
+                    <p className="text-muted-foreground">+91 9490566729</p>
+                  </div>
+                </a>
+
+                {/* Location */}
+                <div className="flex items-center gap-4 p-5 bg-[#1a1a1a] border border-accent/50 rounded-lg hover:border-accent hover:shadow-[0_0_15px_hsl(120_100%_50%/0.4)] transition-all duration-300">
+                  <MapPin className="w-6 h-6 text-accent" />
+                  <div>
+                    <h4 className="text-lg font-semibold">Location</h4>
+                    <p className="text-muted-foreground">Akividu, Andhra Pradesh, India</p>
+                  </div>
+                </div>
+
+                {/* Response Time */}
+                <div className="flex items-center gap-4 p-5 bg-[#1a1a1a] border border-accent/50 rounded-lg hover:border-accent hover:shadow-[0_0_15px_hsl(120_100%_50%/0.4)] transition-all duration-300">
+                  <MessageSquare className="w-6 h-6 text-accent" />
+                  <div>
+                    <h4 className="text-lg font-semibold">Response Time</h4>
+                    <p className="text-muted-foreground">Usually replies within 24 hours</p>
+                  </div>
+                </div>
+
+                {/* Social Links */}
+                <div className="flex items-center gap-6 p-5 bg-[#1a1a1a] border border-accent/50 rounded-lg hover:border-accent hover:shadow-[0_0_15px_hsl(120_100%_50%/0.4)] transition-all duration-300">
+                  <a
+                    href="https://github.com/siddardha146"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:text-primary hover:scale-110 transition-transform"
+                  >
+                    <Github className="w-7 h-7" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/sajjala-siddardha-84685928b/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:text-primary hover:scale-110 transition-transform"
+                  >
+                    <Linkedin className="w-7 h-7" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
