@@ -1,11 +1,4 @@
-import {
-  Download,
-  Home,
-  Code,
-  FolderGit2,
-  Award,
-  Mail,
-} from "lucide-react";
+import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/PageTransition";
 import { useTypingEffect } from "@/hooks/useTypingEffect";
@@ -41,106 +34,50 @@ const HomePage = () => {
           <source src={venomVideo} type="video/mp4" />
         </video>
 
-        {/* Dark overlay for contrast */}
+        {/* Dark gradient overlay for contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/90 pointer-events-none" />
 
         {/* Content */}
         <div className="relative z-10 flex min-h-screen items-center">
-          <div className="container mx-auto px-8 py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left Side */}
-              <div className="space-y-10 animate-fade-in">
-                {/* Intro Text */}
-                <div className="space-y-6">
-                  <h1 className="text-6xl font-extrabold text-[#e6e6e6] drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-                    Hi, I'm{" "}
-                    <span className="text-[#9013fe] drop-shadow-[0_0_12px_#9013fe]">
-                      Sajjala Siddardha
-                    </span>
-                  </h1>
+          <div className="container mx-auto px-6 md:px-8 py-20">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+              {/* Left Content */}
+              <div className="space-y-8 text-center lg:text-left">
+                <h1 className="text-5xl md:text-6xl font-extrabold text-[#e6e6e6]">
+                  Hi, I'm <span className="text-[#9013fe]">Sajjala Siddardha</span>
+                </h1>
 
-                  <div className="text-2xl font-semibold text-[#d68af2] drop-shadow-[0_0_6px_#d68af2] h-8">
-                    {typingText}
-                    <span className="animate-pulse">|</span>
-                  </div>
+                <div className="text-xl md:text-2xl font-semibold text-gray-300 h-8">
+                  {typingText}
+                  <span className="animate-pulse">|</span>
+                </div>
 
-                  <div className="space-y-4 text-lg text-gray-200 leading-relaxed">
-                    <p>Developing scalable systems with a Venomous touch.</p>
-                    <p>Infusing intelligence into every line of code.</p>
-                    <p>Feeding the machine with data and purpose.</p>
-                    <p>
-                      And I'm the{" "}
-                      <span className="text-[#00ffa3] italic">
-                        Universal Coder
-                      </span>{" "}
-                      🕸️
-                    </p>
-                  </div>
+                <div className="space-y-4 text-base md:text-lg text-gray-200 leading-relaxed">
+                  <p>Developing scalable systems with a Venomous touch.</p>
+                  <p>Infusing intelligence into every line of code.</p>
+                  <p>Feeding the machine with data and purpose.</p>
+                  <p>
+                    And I'm the{" "}
+                    <span className="text-[#00ffa3] italic">Universal Coder</span> 🕸️
+                  </p>
                 </div>
 
                 {/* Resume Button */}
                 <a href="/siddardha_resume.pdf" download>
                   <Button
                     size="lg"
-                    className="mt-4 group bg-[#9b00d1] hover:bg-[#00ffa3] text-white font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_#00ffa3] transition-all duration-300"
+                    className="mt-4 bg-[#9b00d1] hover:bg-[#00ffa3] text-white font-semibold px-6 py-4 md:px-8 md:py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_#00ffa3] transition-all duration-300"
                   >
-                    <Download className="w-5 h-5 mr-2 group-hover:scale-125 transition-transform" />
+                    <Download className="w-5 h-5 mr-2" />
                     Download Resume
                   </Button>
                 </a>
               </div>
 
-              {/* Right Side Navigation Icons */}
-              <div className="hidden lg:flex flex-col items-center justify-center space-y-10">
-                <a
-                  href="/"
-                  className="text-gray-300 hover:text-[#00ffa3] transition-colors duration-300"
-                >
-                  <Home className="w-10 h-10 hover:drop-shadow-[0_0_20px_#00ffa3]" />
-                </a>
-                <a
-                  href="/skills"
-                  className="text-gray-300 hover:text-[#9b00d1] transition-colors duration-300"
-                >
-                  <Code className="w-10 h-10 hover:drop-shadow-[0_0_20px_#9b00d1]" />
-                </a>
-                <a
-                  href="/projects"
-                  className="text-gray-300 hover:text-[#00ffa3] transition-colors duration-300"
-                >
-                  <FolderGit2 className="w-10 h-10 hover:drop-shadow-[0_0_20px_#00ffa3]" />
-                </a>
-                <a
-                  href="/certificates"
-                  className="text-gray-300 hover:text-[#9b00d1] transition-colors duration-300"
-                >
-                  <Award className="w-10 h-10 hover:drop-shadow-[0_0_20px_#9b00d1]" />
-                </a>
-                <a
-                  href="/contact"
-                  className="text-gray-300 hover:text-[#00ffa3] transition-colors duration-300"
-                >
-                  <Mail className="w-10 h-10 hover:drop-shadow-[0_0_20px_#00ffa3]" />
-                </a>
-              </div>
+              {/* Empty Right Side for spacing + future sections */}
+              <div className="hidden lg:block w-1/3" />
             </div>
           </div>
-        </div>
-
-        {/* Floating Venom Particles */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(25)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-[#00ffa3] rounded-full animate-float opacity-60"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`,
-              }}
-            />
-          ))}
         </div>
       </div>
     </PageTransition>
