@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Linkedin, Github, Send, Loader2, Phone, MapPin } from "lucide-react";
-import venomSilhouette from "@/assets/venom-silhouette.png";
+import venomSilhouette from "@/assets/venom-silhouette.jpg";
 import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
+
 import { useToast } from "@/hooks/use-toast";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
