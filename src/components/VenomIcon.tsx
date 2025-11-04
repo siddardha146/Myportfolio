@@ -1,22 +1,24 @@
 import venomLogo from "@/assets/ven.png";
 
-import { Link } from "react-router-dom";
-
 export const VenomIcon = () => {
   return (
-    <Link
-      to="/"
-      className="fixed top-6 left-6 z-50 cursor-pointer group transition-all"
+    <a
+      href="/"
+      className="fixed top-6 left-6 z-50 group"
+      aria-label="Home"
     >
       <img
         src={venomLogo}
-        alt="Venom Logo"
-        className="w-16 h-16 object-contain transition-all duration-300 opacity-90
-          group-hover:opacity-100 group-hover:filter group-hover:brightness-150
-          group-hover:drop-shadow-[0_0_25px_rgba(255,0,0,0.8)]"
+        alt="Venom Icon"
+        className="
+          w-28 h-28           /* Increased size: was w-20 h-20 */
+          filter
+          drop-shadow-[0_0_20px_rgba(255,0,0,0.5)]
+          transition-transform duration-300
+          group-hover:scale-125
+          group-hover:drop-shadow-[0_0_40px_rgba(255,0,0,0.8)]
+        "
       />
-    </Link>
+    </a>
   );
 };
-
-export default VenomIcon;
