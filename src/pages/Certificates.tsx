@@ -3,7 +3,6 @@ import { Card } from "@/components/ui/card";
 import { Award } from "lucide-react";
 import venomSilhouette from "@/assets/venom-silhouette.jpg";
 import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
-
 const certificates = [
   {
     title: "Google Cloud Career Launchpad Cloud Engineer Track",
@@ -27,13 +26,13 @@ const certificates = [
     title: "AI Foundation",
     issuer: "Hexart.In",
     date: "2024",
-    pdf: "AI_Foundation-Sajjala_siddardha.pdf",
+    pdf: "/AI_Foundation-Sajjala_siddardha.pdf",
   },
   {
     title: "AI Tools",
     issuer: "be10X",
     date: "2024",
-    pdf: "ben10xcertification.pdf",
+    pdf: "/ben10xcertification.pdf",
   },
   {
     title: "ChatGPT / Generative AI",
