@@ -11,12 +11,12 @@ export const VenomIcon = () => {
         src={venomLogo}
         alt="Venom Icon"
         className="
-          w-28 h-28
+          w-32 h-32
           filter
-          drop-shadow-[0_0_20px_rgba(255,0,0,0.6)]          /* Red glow */
+          drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]         /* Subtle black glow */
           transition-all duration-500
-          group-hover:drop-shadow-[0_0_35px_rgba(0,0,0,0.9)] /* Black glow on hover */
-          group-hover:scale-125
+          group-hover:drop-shadow-[0_0_35px_rgba(0,0,0,1)] /* Stronger black glow on hover */
+          group-hover:scale-125                         /* Smooth size increase on hover */
         "
       />
     </a>
