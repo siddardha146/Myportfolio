@@ -9,7 +9,7 @@ const certificates = [
     title: "Google Cloud Career Launchpad Cloud Engineer Track",
     issuer: "Google Cloud",
     date: "2024",
-    pdf: "/Google sajjala siddardha (1).pdf",
+    pdf: "/googlec.pdf",
   },
   {
     title: "ML-CONNECT",
