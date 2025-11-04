@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import { FloatingNav } from "@/components/FloatingNav";
 import { VenomIcon } from "@/components/VenomIcon"; // ✅ Import Venom icon
 
+
 const queryClient = new QueryClient();
 
 const App = () => (
