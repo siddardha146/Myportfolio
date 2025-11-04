@@ -1,4 +1,5 @@
-import venomLogo from "@/assets/ven.jpg";
+import venomLogo from "@/assets/ven.png";
+
 import { Link } from "react-router-dom";
 
 export const VenomIcon = () => {
