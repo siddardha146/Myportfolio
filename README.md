@@ -38,14 +38,14 @@ It showcases my skills, projects, achievements, certifications, and resume.
 ---
 
 ## 🔗 Live Demo  
-👉 siddardha-portfolio.vercel.app
+👉 **https://siddardha-portfolio.vercel.app**
+
 ---
 
-
-📬 Contact
-Name: Sajjala Siddardha
-Email: siddardhagaming@gmail.com
-GitHub: https://github.com/sajjala-siddardha
+## 📬 Contact
+**Name:** Sajjala Siddardha  
+**Email:** siddardhagaming@gmail.com  
+**GitHub:** https://github.com/sajjala-siddardha
 
 
 ⭐ If you like this project, please give it a star!
