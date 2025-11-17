@@ -38,7 +38,9 @@ It showcases my skills, projects, achievements, certifications, and resume.
 ---
 
 ## 🔗 Live Demo  
-👉 **siddardha-portfolio.vercel.app**
+👉 siddardha-portfolio.vercel.app
+---
+
 
 📬 Contact
 Name: Sajjala Siddardha
