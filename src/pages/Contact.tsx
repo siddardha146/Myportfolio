@@ -132,7 +132,7 @@ const Contact = () => {
                 {/* Social Icons */}
                 <div className="flex justify-center gap-6 mt-6">
                   <a
-                    href="https://github.com/siddardha146"
+                    href="https://github.com/sajjala-siddardha"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-red-400 transition-colors"
