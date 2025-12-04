@@ -76,7 +76,7 @@ const HomePage = () => {
                 </div>
 
                 {/* Resume Button */}
-                <a href="/siddardha_resume.pdf" download>
+                <a href="/siddardha_Resume.pdf" download>
                   <Button
                     size="lg"
                     className="mt-4 bg-[#9b00d1] hover:bg-red-600 text-white font-semibold px-6 py-4 md:px-8 md:py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_#ff0000] transition-all duration-300"
