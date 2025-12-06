@@ -5,6 +5,22 @@ import venomVideo from "@/assets/venom-marvel-rivals.1920x1080.mp4";
 
 const projects = [
   {
+    title: "Email Spam & Phishing Detector",
+    description:
+      "An AI-powered security tool that detects spam emails, analyzes phishing URLs, scans QR text, and generates a unified risk score with an interactive visual dashboard.",
+    tech: ["Python", "Streamlit", "Scikit-learn", "Plotly"],
+    code: "https://github.com/sajjala-siddardha/email-spam-detector",
+    demo: "https://email-spam-detector-score.streamlit.app/",
+  },
+  {
+    title: "Solo Leveling Training System",
+    description:
+      "A gamified Solo Leveling–inspired training app featuring quests, leveling, inventory, gear system, AI System consultant, penalty mode, SFX, and dark-themed UI. Built using React, TypeScript, Vite, and Gemini AI.",
+    tech: ["React", "TypeScript", "Vite", "Gemini AI", "TailwindCSS"],
+    code: "https://github.com/sajjala-siddardha/Solo-Leveling-Training-System",
+    demo: "https://solo-leveling-levelup.vercel.app/",
+  },
+  {
     title: "Watch Wave",
     description:
       "A sleek movie streaming interface to explore trending and top-rated films using real-time API data. Built for a cinematic and smooth user experience.",
