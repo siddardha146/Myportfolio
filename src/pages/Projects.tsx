@@ -25,8 +25,8 @@ const projects = [
     description:
       "A sleek movie streaming interface to explore trending and top-rated films using real-time API data. Built for a cinematic and smooth user experience.",
     tech: ["HTML", "CSS", "JavaScript", "TMDB API"],
-    code: "https://github.com/siddardha146/watch-wave",
-    demo: "https://watchwave-delta.vercel.app/home.html",
+    code: "https://github.com/sajjala-siddardha/watchwave",
+    demo: "https://watchwave-watch.vercel.app/home.html",
   },
   {
     title: "Movie Interface",
